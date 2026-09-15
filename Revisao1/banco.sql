@@ -1,9 +1,4 @@
--- ==========================================
--- BANCO DO SISTEMA CAIXA D'ÁGUA
--- PostgreSQL
--- ==========================================
 
--- Crie antes o banco "caixaDaAgua" no PostgreSQL e execute este arquivo conectado nele.
 -- CREATE DATABASE "caixaDaAgua";
 
 CREATE TABLE IF NOT EXISTS pessoa (
@@ -94,24 +89,3 @@ INSERT INTO caixa (id, saldo)
 VALUES (1, 0)
 ON CONFLICT (id) DO NOTHING;
 
--- ==========================================
--- CONSULTAS ÚTEIS
--- ==========================================
-
--- Saldo:
--- SELECT saldo FROM caixa WHERE id = 1;
-
--- Produtos e estoque:
--- SELECT * FROM caixa_da_agua ORDER BY id;
-
--- Funcionários e setores:
--- SELECT p.id, p.nome, i.habilidade, s.nome AS setor
--- FROM pessoa p
--- JOIN instalador i ON i.pessoa_id = p.id
--- JOIN setor s ON s.id = i.setor_id;
-
--- Histórico financeiro:
--- SELECT * FROM movimentacao ORDER BY data_hora DESC;
-
--- Vendas:
--- SELECT * FROM venda ORDER BY data_venda DESC;
